@@ -10,22 +10,23 @@ void	server(int signal)
 	bits++;
 	if (bits == 8)
 	{
-		printf("test");
 		if (current == '\0')
 			printf("\n");			
 		else
-			printf("%c\n", current);
+		{
+			write(1, &current ,1);
+		}
 		bits = 0;
 		current = 0;
 	}
-	else 
+	else
 		current <<= 1;
-	
 }
 int main()
 {
-	printf("%d",getpid());
-	// printf("test");
+
+	write(1 ,"\033[0;32myour server pid is : ", 38);
+	ft_putnbr(getpid());
 	signal(SIGUSR1,server);
 	signal(SIGUSR2,server);
 	printf("\n");
@@ -33,5 +34,4 @@ int main()
 	{
 		pause();
 	}
-	
 }

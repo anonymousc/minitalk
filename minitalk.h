@@ -7,12 +7,10 @@
 #include <string.h>
 #include <sys/types.h>
 
-
-// #define SIGUSR1 10
-// #define SIGUSR2 12
-
-
 void	client(int pid, unsigned char msg);
 void server(int signal);
+int	ft_atoi(const char *str);
+void ft_putnbr(int n);
+void ft_putchar(char s);
 
 #endif
