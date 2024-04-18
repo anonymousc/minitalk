@@ -1,11 +1,11 @@
 #ifndef MINITALK_H
 #define MINITALK_H
 
-#include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
-#include <string.h>
 #include <sys/types.h>
+#include <limits.h>
+#include <stdlib.h>
 
 void	client(int pid, unsigned char msg);
 void server(int signal);

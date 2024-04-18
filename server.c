@@ -1,6 +1,5 @@
 #include "minitalk.h"
-#include <unistd.h>
-#include <stdio.h>
+
 
 void	server(int signal)
 {
@@ -8,10 +7,10 @@ void	server(int signal)
 	static int bits;
 	current |= (signal == SIGUSR1);
 	bits++;
-	if (bits == 8)
+	if (bits == 7)
 	{
 		if (current == '\0')
-			printf("\n");			
+			ft_putchar('\n');			
 		else
 		{
 			write(1, &current ,1);
@@ -22,16 +21,14 @@ void	server(int signal)
 	else
 		current <<= 1;
 }
-int main()
+int main(void)
 {
 
 	write(1 ,"\033[0;32myour server pid is : ", 38);
 	ft_putnbr(getpid());
 	signal(SIGUSR1,server);
 	signal(SIGUSR2,server);
-	printf("\n");
+	ft_putchar('\n');
 	while (1)
-	{
-		pause();
-	}
+		;
 }

@@ -1,8 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aessadik <aessadik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/14 16:04:08 by aessadik          #+#    #+#             */
+/*   Updated: 2024/04/14 16:04:08 by aessadik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
-#include <stdlib.h>
-#include <signal.h>
-#include <limits.h>
-// include <threads.h>
+
 static int ft_strlen(char *str)
 {
 	int i;
@@ -16,10 +25,10 @@ static int ft_strlen(char *str)
 }
 void	client(int pid, unsigned char msg)
 {
-	int i = 8;
+	int i = 7;
 
 	unsigned char tmp;
-	if (pid <= 1 || pid > INT_MAX)
+	if ((pid >= -1 && pid <= 1 ) || pid > INT_MAX )
 	{
 		write(2,"\e[31mINVALID PID\e[0m",22);
 		exit(1);
@@ -49,8 +58,8 @@ int main(int ac,char *av[])
 	else
 	{
 		while (av[2][i])
-			client(atoi(av[1]),av[2][i++]);
-		client(atoi(av[1]),'\0');
-	    write(1, "\033[0;32msent successfully !\e[0m",34);
+			client(ft_atoi(av[1]),av[2][i++]);
+		client(ft_atoi(av[1]),'\0');
 	}
+	return 0;
 }
