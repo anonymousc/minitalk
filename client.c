@@ -43,8 +43,6 @@ void	client(int pid, unsigned char msg)
 		usleep(400);
 	}
 }
-	
-	
 int main(int ac,char *av[]) 
 {
 	int i = 0;

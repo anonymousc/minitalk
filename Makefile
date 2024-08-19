@@ -22,7 +22,6 @@ SERVER_BONUS = server_bonus
 
 
 all : $(CLIENT) $(SERVER) 
-
 	@echo "\033[0;32menjoy\033[0m"
 
 $(CLIENT) : $(clisrc)
